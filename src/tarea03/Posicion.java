@@ -30,14 +30,15 @@ public class Posicion {
 
     /*Creamos los métodos get y set para los atributos. Recuerdemos que para el método set se debe 
     tener en cuenta que los valores son correctos y si no se comportará lo mismo que el constructor.*/
+    //Creamos el método getFila
     public int getFila() {
         return fila;
     }
-
+    //Creamos el método getColumna
     public char getColumna() {
         return columna;
     }
-
+    //Creamos el método setFila y su posterior comprobación
     public void setFila(int fila) {
 
         if (fila >= 1 && fila <= 8) {
@@ -47,7 +48,7 @@ public class Posicion {
             System.out.printf("Error. No se ha insertado una posición válida para la fila.\n");
         }
     }
-
+    //Creamos el método setColumna y su posterior comprobación
     public void setColumna(char columna) {
         if (columna >= 'a' && columna <= 'h') {
             this.columna = columna;
@@ -58,6 +59,7 @@ public class Posicion {
     }
 
     //Creamos un método llamado toString que devolverá un String y será la representación de la fila y la columna.
+    //Creamos el método toString que nos permite mostrar la información completa de un objeto, es decir, el valor de sus atributos.
     public String toString() {
         String mensaje = "La fila es " + fila + " y " + " la columna es" + columna;
         return mensaje;
