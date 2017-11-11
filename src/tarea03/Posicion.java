@@ -10,9 +10,11 @@ package tarea03;
  * @author Francisco Jesus Latorre Garcia <franlatorregarcia@gmail.com>
  */
 public class Posicion {
+
     //Atributos de la clase posición privados.
     private int fila;
     private char columna;
+
     //Constructor de la clase posición con sus valores.
     public Posicion(int fila, char columna) {
 
@@ -25,11 +27,13 @@ public class Posicion {
             System.out.printf("Error. No se ha insertado una posición válida.\n");
         }
     }
+
     /*Creamos los métodos get y set para los atributos. Recuerdemos que para el método set se debe 
     tener en cuenta que los valores son correctos y si no se comportará lo mismo que el constructor.*/
     public int getFila() {
         return fila;
     }
+
     public char getColumna() {
         return columna;
     }
@@ -43,6 +47,7 @@ public class Posicion {
             System.out.printf("Error. No se ha insertado una posición válida para la fila.\n");
         }
     }
+
     public void setColumna(char columna) {
         if (columna >= 'a' && columna <= 'h') {
             this.columna = columna;
@@ -50,5 +55,11 @@ public class Posicion {
             this.columna = 'a';
             System.out.printf("Error. No se ha insertado una posición válida para la columna.\n");
         }
+    }
+
+    //Creamos un método llamado toString que devolverá un String y será la representación de la fila y la columna.
+    public String toString() {
+        String mensaje = "La fila es " + fila + " y " + " la columna es" + columna;
+        return mensaje;
     }
 }
