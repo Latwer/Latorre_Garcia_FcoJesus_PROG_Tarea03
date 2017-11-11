@@ -17,4 +17,18 @@ public class Rey {
     private Color color;
     private Posicion posicion;
     
+    /*Creamos un constructor para la clase anterior que acepte como parámetros el color. 
+    Tengamos en cuenta que el rey blanco se posiciona inicialmente en la casilla e1 
+    y el negro en la casilla e8.*/
+    public Rey(Color color) {
+        this.color = color;
+        switch (color) {
+            case BLANCO:
+                posicion = new Posicion(1, 'e');
+                break;
+            case NEGRO:
+                posicion = new Posicion(8, 'e');
+                break;
+        }
+    }
 }
