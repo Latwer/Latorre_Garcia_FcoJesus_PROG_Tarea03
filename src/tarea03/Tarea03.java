@@ -7,7 +7,7 @@ package tarea03;
 
 /**
  *
- * @author PitiFJ
+ * @author Latorre_Garcia_FranciscoJesus
  */
 public class Tarea03 {
 
