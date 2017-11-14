@@ -10,6 +10,5 @@ package tarea03;
  * @author Latorre_Garcia_FranciscoJesus
  */
 public enum Direccion {
-    //Direcciones posibles.
-    NORTE, NORESTE, ESTE, SURESTE, SUR, SUROESTE, OESTE, NOROESTE  
-}
+    NORTE, NORESTE, ESTE, SURESTE, SUR, SUROESTE, OESTE, NOROESTE
+};

@@ -31,4 +31,8 @@ public class Rey {
                 break;
         }
     }
+    //Crear un constructor por defecto para la clase que cree un rey blanco. 
+     public Rey(){ 
+         posicion = new Posicion(1,'e');
+     }
 }
