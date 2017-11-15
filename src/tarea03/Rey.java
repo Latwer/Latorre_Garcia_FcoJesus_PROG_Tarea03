@@ -42,4 +42,10 @@ public class Rey {
         return posicion;
     }
 
+    //Crear un método llamado toString y que devuelva un String que será la representación de dicho objeto (color y posición).
+    public String toString() {
+        String mensaje = "El color del rey es " + color + " y la posición es " + posicion;
+        return mensaje;
+    }
+    
 }
