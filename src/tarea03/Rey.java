@@ -47,5 +47,119 @@ public class Rey {
         String mensaje = "El color del rey es " + color + " y la posición es " + posicion;
         return mensaje;
     }
-    
+
+    //Crear un método llamado mueve que acepte como parámetro una dirección 
+    //y que actualice adecuadamente la posición de dicho objeto o 
+    //informe del error si ese movimiento no se puede llevar a cabo.
+    public void mueve(Direccion nuevaDireccion) {
+        int fila = posicion.getFila();
+        char columna = posicion.getColumna();
+        // Evitar salida de tablero del rey por abajo.
+        if (fila == 1 && nuevaDireccion == nuevaDireccion.SUROESTE || nuevaDireccion == nuevaDireccion.SUR || nuevaDireccion == nuevaDireccion.SURESTE) {
+            System.out.println("Movimiento no permitido");
+        }
+        // Evitar salida de tablero del rey por arriba.
+        if (fila == 8 && nuevaDireccion == nuevaDireccion.NOROESTE || nuevaDireccion == nuevaDireccion.NORTE || nuevaDireccion == nuevaDireccion.NORESTE) {
+            System.out.println("Movimiento no permitido");
+        }
+        // Evitar salida de tablero del rey por la izquierda.
+        if (columna == 'a' && nuevaDireccion == nuevaDireccion.OESTE || nuevaDireccion == nuevaDireccion.NOROESTE || nuevaDireccion == nuevaDireccion.SUROESTE) {
+            System.out.println("Movimiento no permitido");
+        }
+        // Evitar salida de tablero del rey por la derecha
+        if (columna == 'h' && nuevaDireccion == nuevaDireccion.ESTE || nuevaDireccion == nuevaDireccion.NORESTE || nuevaDireccion == nuevaDireccion.SURESTE) {
+            System.out.println("Movimiento no permitido");
+        }
+
+        // Movimientos Rey Blanco
+        if (color == Color.BLANCO) {
+            switch (nuevaDireccion) {
+                case NOROESTE:
+                    nuevaDireccion = Direccion.NOROESTE;
+                    posicion.setFila(fila + 1);
+                    posicion.setColumna((char) (columna - 1));
+                    break;
+                case NORTE:
+                    nuevaDireccion = Direccion.NORTE;
+                    posicion.setFila(fila + 1);
+                    posicion.setColumna((char) (columna));
+                    break;
+                case NORESTE:
+                    nuevaDireccion = Direccion.NORESTE;
+                    posicion.setFila(fila + 1);
+                    posicion.setColumna((char) (columna + 1));
+                    break;
+                case OESTE:
+                    nuevaDireccion = Direccion.OESTE;
+                    posicion.setFila(fila);
+                    posicion.setColumna((char) (columna - 1));
+                    break;
+                case ESTE:
+                    nuevaDireccion = Direccion.ESTE;
+                    posicion.setFila(fila);
+                    posicion.setColumna((char) (columna + 1));
+                    break;
+                case SUROESTE:
+                    nuevaDireccion = Direccion.SUROESTE;
+                    posicion.setFila(fila - 1);
+                    posicion.setColumna((char) (columna - 1));
+                    break;
+                case SUR:
+                    nuevaDireccion = Direccion.SUR;
+                    posicion.setFila(fila - 1);
+                    posicion.setColumna((char) (columna));
+                    break;
+                case SURESTE:
+                    nuevaDireccion = Direccion.SURESTE;
+                    posicion.setFila(fila - 1);
+                    posicion.setColumna((char) (columna + 1));
+                    break;
+            }
+        }
+        // Movimientos Rey Negro
+        if (color == Color.NEGRO) {
+            switch (nuevaDireccion) {
+                case SUROESTE:
+                    nuevaDireccion = Direccion.SUROESTE;
+                    posicion.setFila(fila - 1);
+                    posicion.setColumna((char) (columna - 1));
+                    break;
+                case SUR:
+                    nuevaDireccion = Direccion.SUR;
+                    posicion.setFila(fila - 1);
+                    posicion.setColumna((char) (columna));
+                    break;
+                case SURESTE:
+                    nuevaDireccion = Direccion.SURESTE;
+                    posicion.setFila(fila - 1);
+                    posicion.setColumna((char) (columna + 1));
+                    break;
+                case OESTE:
+                    nuevaDireccion = Direccion.OESTE;
+                    posicion.setFila(fila);
+                    posicion.setColumna((char) (columna - 1));
+                    break;
+                case ESTE:
+                    nuevaDireccion = Direccion.ESTE;
+                    posicion.setFila(fila);
+                    posicion.setColumna((char) (columna + 1));
+                    break;
+                case NOROESTE:
+                    nuevaDireccion = Direccion.NOROESTE;
+                    posicion.setFila(fila + 1);
+                    posicion.setColumna((char) (columna - 1));
+                    break;
+                case NORTE:
+                    nuevaDireccion = Direccion.NORTE;
+                    posicion.setFila(fila + 1);
+                    posicion.setColumna((char) (columna));
+                    break;
+                case NORESTE:
+                    nuevaDireccion = Direccion.NORESTE;
+                    posicion.setFila(fila + 1);
+                    posicion.setColumna((char) (columna + 1));
+                    break;
+            }
+        }
+    }
 }
