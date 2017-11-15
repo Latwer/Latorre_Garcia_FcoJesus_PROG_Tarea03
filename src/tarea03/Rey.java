@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tarea03;
 
 /**
@@ -16,7 +11,7 @@ public class Rey {
 
     private Color color;
     private Posicion posicion;
-    
+
     /*Creamos un constructor para la clase anterior que acepte como parámetros el color. 
     Tengamos en cuenta que el rey blanco se posiciona inicialmente en la casilla e1 
     y el negro en la casilla e8.*/
@@ -31,8 +26,20 @@ public class Rey {
                 break;
         }
     }
+
     //Crear un constructor por defecto para la clase que cree un rey blanco. 
-     public Rey(){ 
-         posicion = new Posicion(1,'e');
-     }
+    public Rey() {
+        this.color = Color.BLANCO;
+        posicion = new Posicion(1, 'e');
+    }
+    //Crear los métodos get para cada atributo.
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Posicion getPosicion() {
+        return posicion;
+    }
+
 }
