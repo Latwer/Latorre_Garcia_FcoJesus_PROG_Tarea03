@@ -1,7 +1,6 @@
 package tarea03;
 
 /**
- *
  * @author Francisco Jesus Latorre Garcia <franlatorregarcia@gmail.com>
  *
  * Creamos la clase Rey, cuyos atributos serán un color (del tipo enumerado
@@ -28,12 +27,11 @@ public class Rey {
     }
 
     //Crear un constructor por defecto para la clase que cree un rey blanco. 
-    public Rey() {
+    /*public Rey() {
         this.color = Color.BLANCO;
         posicion = new Posicion(1, 'e');
-    }
+    }*/
     //Crear los métodos get para cada atributo.
-
     public Color getColor() {
         return color;
     }
@@ -41,11 +39,10 @@ public class Rey {
     public Posicion getPosicion() {
         return posicion;
     }
-    
+
     //Crear un método llamado toString y que devuelva un String que será la representación de dicho objeto (color y posición).
     public String toString() {
-        String mensaje = "El color del rey es " + color + " y la posición es " + posicion;
-        return mensaje;
+        return "El color del rey es " + color + " y la posición es " + posicion;
     }
 
     //Crear un método llamado mueve que acepte como parámetro una dirección 
@@ -54,23 +51,16 @@ public class Rey {
     public void mueve(Direccion nuevaDireccion) {
         int fila = posicion.getFila();
         char columna = posicion.getColumna();
-        // Evitar salida de tablero del rey por abajo.
-        if (fila == 1 && nuevaDireccion == nuevaDireccion.SUROESTE || nuevaDireccion == nuevaDireccion.SUR || nuevaDireccion == nuevaDireccion.SURESTE) {
-            System.out.println("Movimiento no permitido");
-        }
-        // Evitar salida de tablero del rey por arriba.
-        if (fila == 8 && nuevaDireccion == nuevaDireccion.NOROESTE || nuevaDireccion == nuevaDireccion.NORTE || nuevaDireccion == nuevaDireccion.NORESTE) {
-            System.out.println("Movimiento no permitido");
-        }
-        // Evitar salida de tablero del rey por la izquierda.
-        if (columna == 'a' && nuevaDireccion == nuevaDireccion.OESTE || nuevaDireccion == nuevaDireccion.NOROESTE || nuevaDireccion == nuevaDireccion.SUROESTE) {
-            System.out.println("Movimiento no permitido");
-        }
-        // Evitar salida de tablero del rey por la derecha
-        if (columna == 'h' && nuevaDireccion == nuevaDireccion.ESTE || nuevaDireccion == nuevaDireccion.NORESTE || nuevaDireccion == nuevaDireccion.SURESTE) {
-            System.out.println("Movimiento no permitido");
-        }
 
+        // Evitar la salida del rey del tablero...
+        /*if ((fila == 1 && nuevaDireccion == nuevaDireccion.SUROESTE || nuevaDireccion == nuevaDireccion.SUR || nuevaDireccion == nuevaDireccion.SURESTE) //Por abajo.
+                || (fila == 8 && nuevaDireccion == nuevaDireccion.NOROESTE || nuevaDireccion == nuevaDireccion.NORTE || nuevaDireccion == nuevaDireccion.NORESTE) //Por arriba.
+                || (columna == 'a' && nuevaDireccion == nuevaDireccion.OESTE || nuevaDireccion == nuevaDireccion.NOROESTE || nuevaDireccion == nuevaDireccion.SUROESTE) //Por la izquierda.
+                || (columna == 'h' && nuevaDireccion == nuevaDireccion.ESTE || nuevaDireccion == nuevaDireccion.NORESTE || nuevaDireccion == nuevaDireccion.SURESTE)) { //Por la derecha.
+            System.out.println("Movimiento no permitido");
+        }
+        //else
+         */
         // Movimientos Rey Blanco y Rey Negro
         if (color == Color.BLANCO || color == Color.NEGRO) {
             switch (nuevaDireccion) {

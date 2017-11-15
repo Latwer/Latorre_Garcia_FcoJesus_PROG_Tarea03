@@ -1,7 +1,6 @@
 package tarea03;
 
 /**
- *
  * @author Francisco Jesus Latorre Garcia <franlatorregarcia@gmail.com>
  */
 public class Posicion {
@@ -12,6 +11,8 @@ public class Posicion {
 
     //Constructor de la clase posición con sus valores.
     public Posicion(int fila, char columna) {
+        this.fila = fila;
+        this.columna = columna;
 
         if ((fila >= 1 && fila <= 8) && (columna >= 'a' && columna <= 'h')) {
             this.fila = fila;
@@ -29,26 +30,35 @@ public class Posicion {
     public int getFila() {
         return fila;
     }
+
     //Creamos el método getColumna
     public char getColumna() {
         return columna;
     }
+
     //Creamos el método setFila y su posterior comprobación
     public void setFila(int fila) {
 
         if (fila >= 1 && fila <= 8) {
             this.fila = fila;
-        } else {
+        } else if (fila < 1) {
             this.fila = 1;
+            System.out.printf("Error. No se ha insertado una posición válida para la fila.\n");
+        } else if (fila > 8) {
+            this.fila = 8;
             System.out.printf("Error. No se ha insertado una posición válida para la fila.\n");
         }
     }
+
     //Creamos el método setColumna y su posterior comprobación
     public void setColumna(char columna) {
         if (columna >= 'a' && columna <= 'h') {
             this.columna = columna;
-        } else {
+        } else if (columna < 'a') {
             this.columna = 'a';
+            System.out.printf("Error. No se ha insertado una posición válida para la columna.\n");
+        } else if (columna > 'h') {
+            this.columna = 'h';
             System.out.printf("Error. No se ha insertado una posición válida para la columna.\n");
         }
     }
@@ -56,7 +66,6 @@ public class Posicion {
     //Creamos un método llamado toString que devolverá un String y será la representación de la fila y la columna.
     //Creamos el método toString que nos permite mostrar la información completa de un objeto, es decir, el valor de sus atributos.
     public String toString() {
-        String mensaje = "La fila es " + fila + " y " + " la columna es" + columna;
-        return mensaje;
+        return "Fila: " + fila + " y " + "Columna: " + columna;
     }
 }
