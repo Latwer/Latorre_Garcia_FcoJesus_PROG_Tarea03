@@ -41,7 +41,7 @@ public class Rey {
     public Posicion getPosicion() {
         return posicion;
     }
-
+    
     //Crear un método llamado toString y que devuelva un String que será la representación de dicho objeto (color y posición).
     public String toString() {
         String mensaje = "El color del rey es " + color + " y la posición es " + posicion;
@@ -71,31 +71,31 @@ public class Rey {
             System.out.println("Movimiento no permitido");
         }
 
-        // Movimientos Rey Blanco
-        if (color == Color.BLANCO) {
+        // Movimientos Rey Blanco y Rey Negro
+        if (color == Color.BLANCO || color == Color.NEGRO) {
             switch (nuevaDireccion) {
                 case NOROESTE:
                     nuevaDireccion = Direccion.NOROESTE;
-                    posicion.setFila(fila + 1);
-                    posicion.setColumna((char) (columna - 1));
+                    posicion.setFila(fila + 1); //Al ser noroeste la fila se incrementará en 1 ya que estará subiendo 
+                    posicion.setColumna((char) (columna - 1)); //Y se desplazará a la izquierda osea una letra menos (si está en la c pues irá a la b.
                     break;
                 case NORTE:
-                    nuevaDireccion = Direccion.NORTE;
+                    nuevaDireccion = Direccion.NORTE; //No cambiará la posición de la columna pero sí la de la fila subiendo una posición en el tablero.
                     posicion.setFila(fila + 1);
                     posicion.setColumna((char) (columna));
                     break;
                 case NORESTE:
-                    nuevaDireccion = Direccion.NORESTE;
+                    nuevaDireccion = Direccion.NORESTE; //Lo mismo que el noroeste pero incrementando una letra.
                     posicion.setFila(fila + 1);
                     posicion.setColumna((char) (columna + 1));
                     break;
                 case OESTE:
                     nuevaDireccion = Direccion.OESTE;
                     posicion.setFila(fila);
-                    posicion.setColumna((char) (columna - 1));
+                    posicion.setColumna((char) (columna - 1)); //En este caso la fila no se verá alterada pero si habrá movimiento en la columna restando una letra.
                     break;
                 case ESTE:
-                    nuevaDireccion = Direccion.ESTE;
+                    nuevaDireccion = Direccion.ESTE; //Y así con los demás teniendo en cuenta la lógica de los puntos cardinales aplicandolo a un tablero de ajedrez.
                     posicion.setFila(fila);
                     posicion.setColumna((char) (columna + 1));
                     break;
@@ -112,51 +112,6 @@ public class Rey {
                 case SURESTE:
                     nuevaDireccion = Direccion.SURESTE;
                     posicion.setFila(fila - 1);
-                    posicion.setColumna((char) (columna + 1));
-                    break;
-            }
-        }
-        // Movimientos Rey Negro
-        if (color == Color.NEGRO) {
-            switch (nuevaDireccion) {
-                case SUROESTE:
-                    nuevaDireccion = Direccion.SUROESTE;
-                    posicion.setFila(fila - 1);
-                    posicion.setColumna((char) (columna - 1));
-                    break;
-                case SUR:
-                    nuevaDireccion = Direccion.SUR;
-                    posicion.setFila(fila - 1);
-                    posicion.setColumna((char) (columna));
-                    break;
-                case SURESTE:
-                    nuevaDireccion = Direccion.SURESTE;
-                    posicion.setFila(fila - 1);
-                    posicion.setColumna((char) (columna + 1));
-                    break;
-                case OESTE:
-                    nuevaDireccion = Direccion.OESTE;
-                    posicion.setFila(fila);
-                    posicion.setColumna((char) (columna - 1));
-                    break;
-                case ESTE:
-                    nuevaDireccion = Direccion.ESTE;
-                    posicion.setFila(fila);
-                    posicion.setColumna((char) (columna + 1));
-                    break;
-                case NOROESTE:
-                    nuevaDireccion = Direccion.NOROESTE;
-                    posicion.setFila(fila + 1);
-                    posicion.setColumna((char) (columna - 1));
-                    break;
-                case NORTE:
-                    nuevaDireccion = Direccion.NORTE;
-                    posicion.setFila(fila + 1);
-                    posicion.setColumna((char) (columna));
-                    break;
-                case NORESTE:
-                    nuevaDireccion = Direccion.NORESTE;
-                    posicion.setFila(fila + 1);
                     posicion.setColumna((char) (columna + 1));
                     break;
             }
